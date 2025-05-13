@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSale Studio | AI Marketing for Realtors & E-commerce</title>
+    <meta name="description" content="AI-Powered Marketing Solutions for Realtors & E-commerce Businesses. Automate your lead generation and sales process with SmartSale Studio.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="SmartSale Studio | AI Marketing for Realtors & E-commerce">
+    <meta property="og:description" content="AI-Powered Marketing Solutions for Realtors & E-commerce Businesses. Automate your lead generation and sales process with SmartSale Studio.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-light: rgba(0, 102, 204, 0.1);
+            --secondary: #28a745;
+            --secondary-light: rgba(40, 167, 69, 0.1);
+            --dark: #333333;
+            --light: #f8f9fa;
+            --whatsapp: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            padding: 1rem 1.5rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-links a, .nav-links button {
+            margin-left: 2rem;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover, .nav-links button:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links .cta-button {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+        
+        .nav-links .cta-button:hover {
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .mobile-menu-button {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+        
+        .mobile-menu a, .mobile-menu button {
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .mobile-menu a:hover, .mobile-menu button:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu .cta-button {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .mobile-menu .cta-button:hover {
+            opacity: 0.9;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, var(--primary), rgba(0, 102, 204, 0.9));
+            color: white;
+            padding: 8rem 1.5rem 5rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 0.375rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .button-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .button-primary:hover {
+            opacity: 0.9;
+        }
+        
+        .button-secondary {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .button-secondary:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            background-color: var(--light);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .trust-badges p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .badge-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .badge-icon {
+            font-size: 2.5rem;
+            color: #666;
+            opacity: 0.7;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+        
+        .badge-icon:hover {
+            filter: grayscale(0);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 1.5rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: #666;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .real-estate-icon {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .ecommerce-icon {
+            background-color: var(--secondary-light);
+            color: var(--secondary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .service-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .service-list li {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        
+        .service-list i {
+            color: var(--secondary);
+            margin-top: 0.25rem;
+        }
+        
+        .service-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .real-estate-button {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .real-estate-button:hover {
+            opacity: 0.9;
+        }
+        
+        .ecommerce-button {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .ecommerce-button:hover {
+            opacity: 0.9;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--light);
+            padding: 5rem 1.5rem;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .step h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        
+        .step p {
+            color: #666;
+        }
+        
+        .why-us {
+            padding: 5rem 1.5rem;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+        
+        .benefit {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        
+        .benefit:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 1.875rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        
+        .benefit p {
+            color: #666;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+            padding: 5rem 1.5rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: 700;
+            color: #666;
+        }
+        
+        .author-name {
+            font-weight: 700;
+        }
+        
+        .author-title {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 64rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Booking Section */
+        .booking {
+            background-color: var(--light);
+            padding: 5rem 1.5rem;
+        }
+        
+        .calendly-container {
+            max-width: 64rem;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-details p {
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.375rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+        
+        .form-textarea {
+            min-height: 6rem;
+            resize: vertical;
+        }
+        
+        .form-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .form-button:hover {
+            opacity: 0.9;
+        }
+        
+        .form-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background-color: var(--whatsapp);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                align-items: center;
+            }
+            
+            .mobile-menu-button {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .button-group {
+                flex-direction: row;
+            }
+            
+            .services-grid, .steps, .benefits, .testimonials-grid, .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .steps, .benefits {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="logo">SmartSale Studio</div>
+            
+            <div class="nav-links">
+                <button onclick="scrollToSection('services')">Services</button>
+                <button onclick="scrollToSection('why-us')">Why Us</button>
+                <button onclick="scrollToSection('book')">Book a Call</button>
+                <button onclick="scrollToSection('contact')">Contact</button>
+                <a href="https://calendly.com/shivanpersadmaharaj/30min" class="cta-button">Book a Demo</a>
+            </div>
+            
+            <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <button onclick="scrollToSection('services')">Services</button>
+            <button onclick="scrollToSection('why-us')">Why Us</button>
+            <button onclick="scrollToSection('book')">Book a Call</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+            <a href="https://calendly.com/shivanpersadmaharaj/30min" class="cta-button">Book a Demo</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>AI-Powered Marketing Solutions</h1>
+            <p>Automate your lead generation and sales process with SmartSale Studio's AI systems for Realtors & E-commerce Businesses</p>
+            
+            <div class="button-group">
+                <a href="https://calendly.com/shivanpersadmaharaj/30min" class="button button-primary">
+                    <i class="far fa-calendar-check"></i>
+                    Book a Free Demo
+                </a>
+                <a href="https://wa.me/18683261494" class="button button-secondary">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <p>Trusted by businesses worldwide</p>
+            <div class="badge-icons">
+                <i class="fas fa-building badge-icon"></i>
+                <i class="fas fa-store badge-icon"></i>
+                <i class="fas fa-home badge-icon"></i>
+                <i class="fas fa-shopping-cart badge-icon"></i>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Tailored AI solutions designed to automate your workflow and boost your business performance</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Real Estate Card -->
+                <div class="service-card">
+                    <div class="service-icon real-estate-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Real Estate Agents</h3>
+                    <ul class="service-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI Chatbots to qualify and follow up with leads 24/7</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Automate showing bookings and appointment reminders</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Custom property ads with AI-powered targeting</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized follow-up sequences for prospects</span>
+                        </li>
+                    </ul>
+                    <a href="https://calendly.com/shivanpersadmaharaj/30min" class="service-button real-estate-button">Learn More</a>
+                </div>
+                
+                <!-- E-commerce Card -->
+                <div class="service-card">
+                    <div class="service-icon ecommerce-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Stores</h3>
+                    <ul class="service-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI-driven email & SMS marketing automation</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Abandoned cart recovery bots that convert</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI customer support and product recommendation</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized customer journey optimization</span>
+                        </li>
+                    </ul>
+                    <a href="https://calendly.com/shivanpersadmaharaj/30min" class="service-button ecommerce-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Our simple process to transform your business with AI</p>
+            </div>
+            
+            <div class="steps">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We analyze your current business processes and identify automation opportunities</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Implementation</h3>
+                    <p>Our team sets up and customizes AI solutions tailored to your specific needs</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Growth</h3>
+                    <p>Watch your business scale while our AI handles leads, sales, and support</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://calendly.com/shivanpersadmaharaj/30min" class="button button-primary">
+                    <i class="far fa-calendar-check"></i>
+                    Schedule Your Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Us -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why SmartSale Studio?</h2>
+                <p>We help businesses automate and scale their operations with cutting-edge AI technology</p>
+            </div>
+            
+            <div class="benefits">
+                <!-- Benefit 1 -->
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Get More Leads & Sales</h3>
+                    <p>Our AI systems work 24/7 to qualify leads, nurture prospects, and close sales automatically</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Time & Manual Work</h3>
+                    <p>Eliminate repetitive tasks and focus on what matters while AI handles the rest</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Affordable AI Systems</h3>
+                    <p>Cost-effective done-for-you solutions that deliver ROI from day one</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses that have transformed with our AI marketing solutions</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The AI chatbot has transformed our lead qualification process. We're saving 20+ hours per week while converting more leads than ever."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div>
+                            <div class="author-name">Jane Doe</div>
+                            <div class="author-title">Real Estate Agent</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Our abandoned cart recovery rate increased by 38% since implementing SmartSale's AI solution. It's paying for itself many times over."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div>
+                            <div class="author-name">John Smith</div>
+                            <div class="author-title">E-commerce Store Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Grow Your Business with AI?</h2>
+            <p>Book your free demo today and see how our AI solutions can transform your business</p>
+            
+            <div class="button-group">
+                <a href="https://calendly.com/shivanpersadmaharaj/30min" class="button button-secondary">
+                    <i class="far fa-calendar-check"></i>
+                    Book a Free Demo
+                </a>
+                <a href="https://wa.me/18683261494" class="button button-primary">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section -->
+    <section class="booking" id="book">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book a Free Strategy Call</h2>
+                <p>Schedule a time that works for you and let's discuss how we can help grow your business</p>
+            </div>
+            
+            <div class="calendly-container">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/shivanpersadmaharaj/30min" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Have questions? Reach out to us directly</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>WhatsApp</h4>
+                                <p>+1 868 326 1494</p>
+                                <a href="https://wa.me/18683261494">Message us</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>shivanpersadmaharaj@gmail.com</p>
+                                <a href="mailto:shivanpersadmaharaj@gmail.com">Send an email</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="far fa-calendar-check"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Schedule</h4>
+                                <p>Book a meeting at your convenience</p>
+                                <a href="https://calendly.com/shivanpersadmaharaj/30min">Check availability</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-button" id="submitButton">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/18683261494" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> SmartSale Studio. All Rights Reserved.</p>
+            
+            <div class="footer-links">
+                <a href="https://wa.me/18683261494" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:shivanpersadmaharaj@gmail.com" aria-label="Email">
+                    <i class="far fa-envelope"></i>
+                </a>
+                <a href="https://calendly.com/shivanpersadmaharaj/30min" aria-label="Calendar">
+                    <i class="far fa-calendar-check"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        }
+        
+        // Smooth scroll function
+        function scrollToSection(id) {
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').style.display = 'none';
+            
+            const element = document.getElementById(id);
+            if (element) {
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const submitButton = document.getElementById('submitButton');
+            const form = document.getElementById('contactForm');
+            
+            // Disable button and show submitting state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Simulate form submission - in a real scenario, you would send data to a server
+            setTimeout(() => {
+                // Show success message
+                alert('Message sent successfully! We\'ll get back to you as soon as possible.');
+                
+                // Reset form
+                form.reset();
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            }, 1500);
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 1.5rem';
+                navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '1rem 1.5rem';
+                navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
